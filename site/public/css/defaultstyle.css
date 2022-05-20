@@ -46,11 +46,14 @@ nav.navbar {
 }
 
 nav.navbar img {
-    height: 30%;
+    padding-left: 10%;
+    height: 50%;
     filter: drop-shadow(0 0 20px #f3f3f3);
 }
 
 nav.navbar-active img {
+    padding-left: 10%;
+
     height: 60%;
 }
 
@@ -397,7 +400,7 @@ nav .botao-sair {
 
 nav .botao-sair:hover {
     background: #cccaeb;
-    color:#324048 ;
+    color: #324048;
 }
 
 
