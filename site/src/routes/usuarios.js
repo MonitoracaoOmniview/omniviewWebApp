@@ -27,12 +27,20 @@ router.get("/getMemoriaRamEmUso", function (req,res){
        usuarioController.getMemoriaRamEmUso(req, res)
 });
 
-router.get("/getMemoriaRamEmUsoMaq2", function (req,res){
-       usuarioController.getMemoriaRamEmUsoMaq2(req, res)
+router.get("/getMemoriaRamEmUsoTot2", function (req,res){
+       usuarioController.getMemoriaRamEmUsoTot2(req, res)
 });
 
-router.get("/getMemoriaRamEmUsoMaq3", function (req,res){
-       usuarioController.getMemoriaRamEmUsoMaq3(req, res)
+router.get("/getMemoriaRamEmUsoTot3", function (req,res){
+       usuarioController.getMemoriaRamEmUsoTot3(req, res)
+});
+
+router.get("/getMemoriaRamEmUsoTot4", function (req,res){
+       usuarioController.getMemoriaRamEmUsoTot4(req, res)
+});
+
+router.get("/getMemoriaRamEmUsoTot5", function (req,res){
+       usuarioController.getMemoriaRamEmUsoTot5(req, res)
 });
 
 router.get("/getMemoriaEmUso", function (req,res){
@@ -58,5 +66,30 @@ router.get("/getArquitetura", function (req,res){
 router.get("/getCpu", function (req,res){
        usuarioController.getCpu(req, res)
 });
+
+router.get("/getMemoriaRamTotalTot2", function (req,res){
+       usuarioController.getMemoriaRamTotalTot2(req, res)
+});
+
+router.get("/getMemoriaRamTotalTot3", function (req,res){
+       usuarioController.getMemoriaRamTotalTot3(req, res)
+});
+
+router.get("/getMemoriaRamTotalTot4", function (req,res){
+       usuarioController.getMemoriaRamTotalTot4(req, res)
+});
+
+router.get("/getMemoriaRamTotalTot5", function (req,res){
+       usuarioController.getMemoriaRamTotalTot5(req, res)
+});
+
+//
+router.put("/atualizar/:idUsuario", function (req, res) {
+       avisoController.atualizar(req, res);
+   });
+
+router.post("/reiniciarmaq", function (req, res) {
+       usuarioController.reiniciarmaq(req, res);
+     });
 
 module.exports = router; 

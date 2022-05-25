@@ -17,7 +17,7 @@
 
 
 <body
-  onload="getMemoriaRamTotal(), getMemoriaTotal(), getSistemaOp(), getMemoriaEmUso(), getProcessador(), getMemoriaRamEmUso(), getArquitetura(), getCpu(), ArryCPU()">
+  onclick="getMemoriaRamTotal(), getMemoriaTotal(), getSistemaOp(), getMemoriaEmUso(), getProcessador(), getMemoriaRamEmUso(), getArquitetura(), getCpu(), ArryCPU()">
   <div id="container">
 
     <div class="headerPai">
@@ -309,6 +309,11 @@
 
 
 <script>
+  
+  var ramUsoAgora;
+  var memoriaUsoAgora;
+  var ramLivre;
+  
   arqmaquina.innerHTML = Number(sessionStorage.ARQUITETURA);
   processadorHtml.innerHTML = sessionStorage.PROCESSADOR;
   ramHtml.innerHTML = sessionStorage.RAMTOTAL;
@@ -316,6 +321,24 @@
   discoTotal.innerHTML = sessionStorage.MEMORIATOTAL;
   nome_user.innerHTML = sessionStorage.NOME_USUARIO;
   email_user.innerHTML = sessionStorage.EMAIL_USUARIO;
+
+
+
+  function getTudoAgora(){
+  ramUsoAgora = sessionStorage.RAMEMUSO;
+  memoriaUsoAgora = sessionStorage.MEMORIAEMUSO;
+  
+
+  myChart.data.datasets[0].data[0] = ramUsoAgora;
+  myChart_tot1_direito.data.datasets[0].data[0] = memoriaUsoAgora;
+
+  myChart_tot1_direito.update();
+  myChart.update();
+  }
+
+setInterval(() =>{
+    getTudoAgora();
+}, 1000)
 
 
   //----------------
@@ -357,7 +380,7 @@
     datasets: [{
       label: 'RAM(%)',
       backgroundColor: ['blue', 'white'],
-      data: [Number(sessionStorage.RAMEMUSO), Number(sessionStorage.RAMTOTAL)],
+      data: [Number(ramUsoAgora), Number(sessionStorage.RAMTOTAL)],
     }]
   }
 
@@ -709,7 +732,7 @@
       label: 'ARMAZENAMENTO',
       backgroundColor: ['blue', 'white'],
       borderColor: '#c4e0f3',
-      data: [Number(sessionStorage.MEMORIAEMUSO), Number(sessionStorage.MEMORIATOTAL)],
+      data: [Number(memoriaUsoAgora), Number(sessionStorage.MEMORIATOTAL)],
     }]
   }
 

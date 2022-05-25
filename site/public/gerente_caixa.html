@@ -59,7 +59,7 @@
                 <div class="face" id="front">
                     <div class="alinhar_componentes">
                         <h5>TOTEM 1</h5>
-                        <button class="button_reiniciar">Reiniciar aplicação</button>
+                        <button onclick="reiniciarmaq()" class="button_reiniciar">Reiniciar aplicação</button>
                         <div class="alerta" id="totem"><span id="numberr"></span></div>
                     </div>
                 </div>
@@ -68,8 +68,8 @@
                 <div class="face" id="front2">
                     <div class="alinhar_componentes">
                         <h5>TOTEM 2</h5>
-                        <button class="button_reiniciar">Reiniciar aplicação</button>
-                        <div class="alerta" id="totem1"></div>
+                        <button onclick="reiniciarmaq()" class="button_reiniciar">Reiniciar aplicação</button>
+                        <div class="alerta" id="totem2"><span id="numberr2">2</span></div>
                     </div>
                 </div>
             </div>
@@ -77,8 +77,8 @@
                 <div class="face" id="front3">
                     <div class="alinhar_componentes">
                         <h5>TOTEM 3</h5>
-                        <button class="button_reiniciar">Reiniciar aplicação</button>
-                        <div class="alerta" id="totem1"></div>
+                        <button onclick="reiniciarmaq()" class="button_reiniciar">Reiniciar aplicação</button>
+                        <div class="alerta" id="totem3"><span id="numberr3">3</span></div>
                     </div>
                 </div>
             </div>
@@ -86,8 +86,8 @@
                 <div class="face" id="front4">
                     <div class="alinhar_componentes">
                         <h5>TOTEM 4</h5>
-                        <button class="button_reiniciar">Reiniciar aplicação</button>
-                        <div class="alerta" id="totem1"></div>
+                        <button onclick="reiniciarmaq()" class="button_reiniciar">Reiniciar aplicação</button>
+                        <div class="alerta" id="totem4"><span id="numberr4"></span></div>
                     </div>
                 </div>
             </div>
@@ -95,8 +95,8 @@
                 <div class="face" id="front5">
                     <div class="alinhar_componentes">
                         <h5>TOTEM 5</h5>
-                        <button class="button_reiniciar">Reiniciar aplicação</button>
-                        <div class="alerta" id="totem1"></div>
+                        <button onclick="reiniciarmaq()" class="button_reiniciar">Reiniciar aplicação</button>
+                        <div class="alerta" id="totem5"><span id="numberr5"></span></div>
                     </div>
                 </div>
             </div>
@@ -139,16 +139,179 @@
 
 </html>
 <script>
-    
-    var alerta;
 
-    function chageTheAlertColor() {
+function getram(){
 
-        if (sessionStorage.RAMEMUSO > 6) {
-            totem.style.backgroundColor = 'red';
+    var ramTotal = sessionStorage.RAMTOTAL;
+    var ramTotalTot2 = sessionStorage.RAMTOTALTOT2;
+    var ramTotalTot3 = sessionStorage.RAMTOTALTOT3;
+    var ramTotalTot4 = sessionStorage.RAMTOTALTOT4;
+    var ramTotalTot5 = sessionStorage.RAMTOTALTOT5;
+
+    var ramMaquina = sessionStorage.RAMEMUSO;
+    numberr.innerHTML = ramMaquina;
+
+    var ramMaquina2 = sessionStorage.RAMEMUSOTOT2;
+    numberr2.innerHTML = ramMaquina2;
+
+    var ramMaquina3 = sessionStorage.RAMEMUSOTOT3;
+    numberr3.innerHTML = ramMaquina3;
+
+    var ramMaquina4 = sessionStorage.RAMEMUSOTOT4;
+    numberr4.innerHTML = ramMaquina4;
+
+    var ramMaquina5 = sessionStorage.RAMEMUSOTOT5;
+    numberr5.innerHTML = ramMaquina5;
+
+        var valorCheio = ramTotal;
+        var valorUsado = ramMaquina;
+        var calculoPorcentagem = ((valorUsado * 100)/valorCheio).toFixed(0);
+
+    console.log("AQUIII TOTEM 2:" + ramTotalTot2)
+    console.log("AQUIII TOTEM 3:" + ramTotalTot3)
+    console.log("AQUIII TOTEM 4:" + ramTotalTot4)
+    console.log("AQUIII TOTEM 5:" + ramTotalTot5)
+
+        var valorCheio = ramTotalTot2;
+        var valorUsado = ramMaquina2;
+        var calculoPorcentagem2 = ((valorUsado * 100)/valorCheio).toFixed(0);
+
+        var valorCheio = ramTotalTot3;
+        var valorUsado = ramMaquina3;
+        var calculoPorcentagem3 = ((valorUsado * 100)/valorCheio).toFixed(0);
+
+        var valorCheio = ramTotalTot4;
+        var valorUsado = ramMaquina4;
+        var calculoPorcentagem4 = ((valorUsado * 100)/valorCheio).toFixed(0);
+
+        var valorCheio = ramTotalTot5;
+        var valorUsado = ramMaquina5;
+        var calculoPorcentagem5 = ((valorUsado * 100)/valorCheio).toFixed(0);
+
+
+
+        // ================ Muda a dor do totem 1 ==============
+         if (calculoPorcentagem <= 70) {
+             totem.style.backgroundColor = 'green';
         }
 
-    }
+         else if (calculoPorcentagem <= 80) {
+             totem.style.backgroundColor = 'yellow';
+
+        }
+
+        else if (calculoPorcentagem <= 90) {
+             totem.style.backgroundColor = 'orange';
+
+        }
+
+        else{
+             totem.style.backgroundColor = 'red';
+        }
+
+        // ===================== Muda a acor maquina 2 ============ 
+
+         if (calculoPorcentagem2 <= 70) {
+             totem2.style.backgroundColor = 'green';
+        }
+
+         else if (calculoPorcentagem2 <= 80) {
+             totem2.style.backgroundColor = 'yellow';
+
+        }
+
+        else if (calculoPorcentagem2 <= 90) {
+
+             totem2.style.backgroundColor = 'orange';
+        }
+
+        else{
+             totem2.style.backgroundColor = 'red';
+        }
+
+        // ======================= alete totem 3============= 
+
+         if (calculoPorcentagem3 <= 70) {
+             totem3.style.backgroundColor = 'green';
+        }
+
+         else if (calculoPorcentagem3 <= 80) {
+             totem3.style.backgroundColor = 'yellow';
+
+        }
+
+        else if (calculoPorcentagem3 <= 90) {
+
+             totem3.style.backgroundColor = 'orange';
+        }
+
+        else{
+             totem3.style.backgroundColor = 'red';
+        }
+        // ======================= alete totem 4============= 
+
+         if (calculoPorcentagem4 <= 70) {
+             totem4.style.backgroundColor = 'green';
+        }
+
+         else if (calculoPorcentagem4 <= 80) {
+             totem4.style.backgroundColor = 'yellow';
+
+        }
+
+        else if (calculoPorcentagem4 <= 90) {
+
+             totem4.style.backgroundColor = 'orange';
+        }
+
+        else{
+             totem4.style.backgroundColor = 'red';
+        }
+
+        // // ======================= alete totem 5============= 
+
+         if (calculoPorcentagem5 <= 70) {
+             totem5.style.backgroundColor = 'green';
+        }
+
+         else if (calculoPorcentagem5 <= 80) {
+             totem5.style.backgroundColor = 'yellow';
+
+        }
+
+        else if (calculoPorcentagem5 <= 90) {
+
+             totem5.style.backgroundColor = 'orange';
+        }
+
+        else{
+             totem5.style.backgroundColor = 'red';
+        }
+}
+
+
+
+    // var alerta;
+
+    // function chageTheAlertColor() {
+
+    //     var numero = sessionStorage.RAMTOTAL;
+    //     var valorCheio = Number(numero);
+    //     var valorUsado = Number(ramMaquina);
+    //     var calculo = Number((valorUsado * 100)/valorCheio);
+
+    //     console.log("RAM AQUIIII" + calculo);
+
+    //     if (sessionStorage.RAMEMUSO > 6) {
+    //         totem.style.backgroundColor = 'red';
+    //     }
+
+    // }
+
+setInterval(() =>{
+    getram();
+    //chageTheAlertColor();
+}, 8000)
 
     const labels = [
         'Segunda',
@@ -199,6 +362,38 @@
         document.getElementById('myChart'),
         config
     );
+
+
+    function reiniciarmaq() {
+
+fetch("/usuarios/reiniciarmaq", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    reiniciarMaqServer: 1,
+
+
+  })
+}).then(function (resposta) {
+
+  console.log("resposta: ", resposta);
+
+  if (resposta.ok) {
+    window.alert("maquina reiniciada com sucesso");
+    limparFormulario();
+
+  } else {
+    throw ("Houve um erro ao tentar realizar o cadastro!");
+  }
+}).catch(function (resposta) {
+  console.log(`#ERRO: ${resposta}`);
+
+});
+
+
+}
 
 
 </script>

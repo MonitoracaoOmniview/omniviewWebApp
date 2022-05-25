@@ -25,8 +25,8 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="contatos.html">Duvidas</a>
                     <li><a href="loginEmpresa.html">Login Empresa</a></li>
-                    <li><a href="login.html "><button class="botao-entrar ">Login Usuário</button></a></li>
-                    
+                    <li><a href="login.html " class="li-checked"><button class="botao-entrar ">Login Usuário</button></a></li>
+
 
                 </ul>
             </nav>
@@ -61,18 +61,14 @@
 
 
 
-    <br><br><br><br><br><br><br>
-
-    <div id="titulo_login">
-    <h1>Entre com o usuário</h1></div>
     <section class="forms">
 
-        <div>
+        <div class="login_left">
             <div class="banner-login">
                 <div class="container">
                     <div class="card medio">
                         <div class="formulario">
-                            <div>
+                            <div class="login_styles">
                                 <br>
                                 E-mail:
                                 <input id="email_input" type="text" placeholder="Login">
@@ -82,46 +78,48 @@
                                 <br>
                                 <button class="btn" onclick="entrar()">Entrar</button>
                             </div>
-        
-        
+
+
                         </div>
-        
+
                         <div id="div_aguardar" class="loading-div">
                             <img src="./assets/circle-loading.gif" id="loading-gif">
                         </div>
-        
+
                         <div id="div_erros_login">
-        
+
                         </div>
                     </div>
                 </div>
-         </div>
-         <img src="./assets/imgs/Login.png " alt="Contato " id="img_contato">
-
-    </div>
-
-
-
-
-    <footer>
-        <div class="footer-info">
-            <div class="container">
-                <div class="align-links-footer">
-                    <a href=""><img src="./assets/imgs/logos/logo-fbc.webp"></a>
-                    <a href=""><img src="./assets/imgs/logos/logo-insta.webp"></a>
-                    <a href=""><img src="./assets/imgs/logos/logo-linkd.webp"></a>
+            </div>
+        </div>
+        <div class="login_right">
+        <img src="./assets/imgs/Login.png " alt="Contato " id="img_contato">
+        </div>
 
 
+
+
+
+        <footer>
+            <div class="footer-info">
+                <div class="container">
+                    <div class="align-links-footer">
+                        <a href=""><img src="./assets/imgs/logos/logo-fbc.webp"></a>
+                        <a href=""><img src="./assets/imgs/logos/logo-insta.webp"></a>
+                        <a href=""><img src="./assets/imgs/logos/logo-linkd.webp"></a>
+
+
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="footer-copyright">
-            <div class="container">
-                <p>© 2022 by OmniView todos direitos reservados.</p>
+            <div class="footer-copyright">
+                <div class="container">
+                    <p>© 2022 by OmniView todos direitos reservados.</p>
+                </div>
             </div>
-        </div>
-    </footer>
+        </footer>
 </body>
 
 </html>
@@ -173,9 +171,9 @@
                     setTimeout(function () {
                         if (emailVar == "gustavo@sptech.com") {
                             window.location = "gerente_caixa.html";
-                        }else if(emailVar == "wesley@sptech.com"){
+                        } else if (emailVar == "wesley@sptech.com") {
                             window.location = "dash-suporte.html";
-                        }else{
+                        } else {
                             window.location = "gerente_caixa.html";
                         }
                     }, 1000); // apenas para exibir o loading
@@ -199,5 +197,5 @@
         return false;
     }
 
-    
+
 </script>

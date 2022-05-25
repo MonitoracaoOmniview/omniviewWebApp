@@ -114,6 +114,86 @@ function getMemoriaRamTotal(req, res) {
         );
 }
 
+// -------------------------- RAM TOTAL TOTEM 2 -----------------------------------------------
+function getMemoriaRamTotalTot2(req, res) {
+    usuarioModel.getMemoriaRamTotalTot2()
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+// ====================================================================================================
+
+// -------------------------- RAM TOTAL TOTEM 3 -----------------------------------------------
+function getMemoriaRamTotalTot3(req, res) {
+    usuarioModel.getMemoriaRamTotalTot3()
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+// ====================================================================================================
+
+// -------------------------- RAM TOTAL TOTEM 4 -----------------------------------------------
+function getMemoriaRamTotalTot4(req, res) {
+    usuarioModel.getMemoriaRamTotalTot4()
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+// ====================================================================================================
+
+// -------------------------- RAM TOTAL TOTEM 5 -----------------------------------------------
+function getMemoriaRamTotalTot5(req, res) {
+    usuarioModel.getMemoriaRamTotalTot5()
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+// ====================================================================================================
+
 // ---------- Memoria Ram em uso ---------------
 function getMemoriaRamEmUso(req, res) {
     usuarioModel.getMemoriaRamEmUso()
@@ -131,8 +211,10 @@ function getMemoriaRamEmUso(req, res) {
             }
         );
 }
-function getMemoriaRamEmUsoMaq2(req, res) {
-    usuarioModel.getMemoriaRamEmUsoMaq2()
+//------------------------------------------ RAM USO TOTEM 2 ----------------------------------------
+
+function getMemoriaRamEmUsoTot2(req, res) {
+    usuarioModel.getMemoriaRamEmUsoTot2()
         .then(function (resultado) {
             if (resultado.length > 0) {
                 res.status(200).json(resultado);
@@ -147,8 +229,12 @@ function getMemoriaRamEmUsoMaq2(req, res) {
             }
         );
 }
-function getMemoriaRamEmUsoMaq3(req, res) {
-    usuarioModel.getMemoriaRamEmUsoMaq3()
+
+// ====================================================================================================
+
+//------------------------------------------ RAM USO TOTEM 3 ----------------------------------------
+function getMemoriaRamEmUsoTot3(req, res) {
+    usuarioModel.getMemoriaRamEmUsoTot3()
         .then(function (resultado) {
             if (resultado.length > 0) {
                 res.status(200).json(resultado);
@@ -163,6 +249,45 @@ function getMemoriaRamEmUsoMaq3(req, res) {
             }
         );
 }
+// ==========================================================================================
+
+//------------------------------------------ RAM USO TOTEM 4 ----------------------------------------
+function getMemoriaRamEmUsoTot4(req, res) {
+    usuarioModel.getMemoriaRamEmUsoTot4()
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+// ==========================================================================================
+
+//------------------------------------------ RAM USO TOTEM 5 ----------------------------------------
+function getMemoriaRamEmUsoTot5(req, res) {
+    usuarioModel.getMemoriaRamEmUsoTot5()
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+// ==========================================================================================
 
 // Memoria Total
 function getMemoriaTotal(req, res) {
@@ -271,12 +396,34 @@ function getCpu(req, res) {
         );
 }
 
+function reiniciarmaq(req, res) {
+    var reiniciarMaq = req.body.reiniciarMaqServer;
+  
+  
+      usuarioModel
+        .reiniciarmaq(reiniciarMaq)
+        .then(function (resultado) {
+          res.json(resultado);
+        })
+        .catch(function (erro) {
+          console.log(erro);
+          console.log(
+            "\nHouve um erro ao realizar o cadastro! Erro: ",
+            erro.sqlMessage
+          );
+          res.status(500).json(erro.sqlMessage);
+        });
+    
+  }
+  
+
 
 module.exports = {
     entrar,
     cadastrar,
     listar,
     testar,
+    reiniciarmaq,
     getMemoriaRamTotal,
     getMemoriaRamEmUso,
     getMemoriaEmUso,
@@ -285,6 +432,12 @@ module.exports = {
     getProcessador,
     getArquitetura,
     getCpu,
-    getMemoriaRamEmUsoMaq2,
-    getMemoriaRamEmUsoMaq3,
+    getMemoriaRamEmUsoTot2,
+    getMemoriaRamEmUsoTot3,
+    getMemoriaRamEmUsoTot4,
+    getMemoriaRamEmUsoTot5,
+    getMemoriaRamTotalTot2,
+    getMemoriaRamTotalTot3,
+    getMemoriaRamTotalTot4,
+    getMemoriaRamTotalTot5,
 }

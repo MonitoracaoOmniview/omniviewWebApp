@@ -307,17 +307,24 @@ input:checked + .slider:before {
     }
 
     //----------------------------------- SCRIPT ATIVO/INATIVO
+// ========================= teste 1 ==============
+    var statusColaborado = "A";
+
     $(document).ready(function(){
 	$('#on1').on('change',function(){
     	if(this.checked){
     		console.log('ATIVO');
+            statusColaborado = "A";
     	}
         else{
           console.log('DESATIVO');
+          statusColaborado = "D";
 
         }
     });
 });
+
+// ============================================================
 $(document).ready(function(){
 	$('#on2').on('change',function(){
     	if(this.checked){
@@ -329,6 +336,8 @@ $(document).ready(function(){
         }
     });
 });
+
+
 $(document).ready(function(){
 	$('#on3').on('change',function(){
     	if(this.checked){
@@ -340,6 +349,7 @@ $(document).ready(function(){
         }
     });
 });
+
 $(document).ready(function(){
 	$('#on4').on('change',function(){
     	if(this.checked){
