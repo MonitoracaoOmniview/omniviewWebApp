@@ -32,7 +32,6 @@ h2{
 }
 
 .cards{
-<<<<<<< HEAD
     display: grid;
     height: 22rem;
     width: 50%;
@@ -71,16 +70,20 @@ h2{
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
 .alertasInstrucaoSocial{
-    height: 25vh;
-    width: auto;
+    height: 15vh;
+    width: 80%;
     justify-content: space-around;
     align-items: center;
     text-align: center;
     display: flex;
-
+    background-color: #dee4e8;
+    border-radius: 50px;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .alertasInstrucao{
@@ -90,6 +93,7 @@ h2{
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #b6c2c9;
 }
 
 #alertaVerde{
@@ -116,17 +120,6 @@ h2{
     display: grid;
     font-size: xx-large;
     font-weight: bolder;
-=======
-    display: flex;
-    height: 10rem;
-    width: 80%;
-    padding: 1rem 0;
-    margin: auto;
-    flex-direction: row;
-    justify-content: space-around;
-    background-color: #3cb0fd;
-    overflow-x: scroll;
->>>>>>> f07aa656446378e7f2f55b84d2d5a6d87e0db17c
 }
 
 .social_dash{
@@ -191,13 +184,8 @@ h2{
     transition: all .5s;
 }
 .face{
-<<<<<<< HEAD
     width: 13rem;
     height: 9rem;
-=======
-    width: 10rem;
-    height: 7rem;
->>>>>>> f07aa656446378e7f2f55b84d2d5a6d87e0db17c
     display: flex;
     justify-content: center;
     margin-right: 1rem;
@@ -209,10 +197,7 @@ h2{
     transition: all .5s;
     background-color: #cfd6e4;
     transform: rotateY(180deg);
-<<<<<<< HEAD
     margin-top:1rem;
-=======
->>>>>>> f07aa656446378e7f2f55b84d2d5a6d87e0db17c
 }
 
 .alerta{

@@ -328,25 +328,6 @@ function getArquitetura() {
 };
 
 
-<<<<<<< HEAD
-=======
-                cpu = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
-                console.log(cpu.Cpubd);
-                sessionStorage.CPU = cpu.Cpubd;
-
-            });
-        } else {
-            console.log("Dados recebidos: ", JSON.stringify(resposta));
-        }
-    }).catch(function (erro) {
-        console.log(erro);
-    })
-    return false;
-
-
-};
-
->>>>>>> f07aa656446378e7f2f55b84d2d5a6d87e0db17c
 // setInterval(() =>{
 //     getMemoriaRamEmUso();
 //     getMemoriaEmUso();
@@ -358,8 +339,4 @@ function getArquitetura() {
 //     getMemoriaRamTotalTot3();
 //     getMemoriaRamTotalTot4();
 //     getMemoriaRamTotalTot5();
-<<<<<<< HEAD
 // }, 1000)
-=======
-// }, 15000)
->>>>>>> f07aa656446378e7f2f55b84d2d5a6d87e0db17c

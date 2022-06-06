@@ -45,15 +45,6 @@ function cadastrarEmpresa(nomeEmp, emailEmp, senhaEmp, enderecoEmp, cnpjEmp) {
     return database.executar(instrucao);
 }
 
-function cadastrarEmpresa(nomeEmp, emailEmp, senhaEmp, enderecoEmp, cnpjEmp) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrarEmpresa():", nomeEmp, emailEmp, senhaEmp, enderecoEmp, cnpjEmp);
-    var instrucao = `
-        INSERT INTO estabelecimento VALUES ('${nomeEmp}', '${cnpjEmp}', '${enderecoEmp}',3894829849, '${senhaEmp}');
-    `;
-    console.log("Executando a instrução SQL: \n" + instrucao);
-    return database.executar(instrucao);
-}
-
 // =================================== MEMORIA TOTAL MAQUINA 1 =====================================
 function getMemoriaRamTotal() {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function getMemoriaRamTotal()");
@@ -258,41 +249,12 @@ function altearStatusColaborador(novaDescricao, idAviso) {
 
 function reiniciarMaquina(idMaq) {
     var instrucao = `
-<<<<<<< HEAD
     update [dbo].[maquina] set reiniciar = 1 where id = ${idMaq};
-=======
-    update [dbo].[maquina] set reiniciar = ${reiniciarMaq} where id = 597
-);
->>>>>>> f07aa656446378e7f2f55b84d2d5a6d87e0db17c
-      `;
-    console.log("Executando a instrução SQL: \n" + instrucao);
-    return database.executar(instrucao);
-    console.log('MANDOU 1 PRA MAQUINA')
-  }
-
-
-// ===========================ADC TOTENS================================================
-
-
-  var database = require("../database/config");
-
-
-function atualizarTotem(idTotem, sistema, fabricante, ipTotem) {
-    console.log("MODEL: ", idTotem);
-    console.log("MODEL: ", sistema);
-    console.log("MODEL: ", fabricante);
-    console.log("MODEL: ", ipTotem);
-    var instrucao = `
-          UPDATE totem SET sistema = '${sistema}', 
-          fabricante = '${fabricante}', 
-          ipTotem = '${ipTotem}'
-          WHERE idTotem = ${idTotem}
       `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
   }
 
-<<<<<<< HEAD
 function removerMaquina(id) {
 
     var instrucao = `
@@ -335,16 +297,11 @@ function atualizarTotem(idTotem, sistema, fabricante, ipTotem) {
     return database.executar(instrucao);
   }
 
-=======
->>>>>>> f07aa656446378e7f2f55b84d2d5a6d87e0db17c
   function deletarTotem(idTotem) {
     var instrucao = `
           DELETE FROM totem WHERE idTotem = 52;
       `;
-<<<<<<< HEAD
       //delete from [dbo].[medicoes] where Fk_MaqRe = 607
-=======
->>>>>>> f07aa656446378e7f2f55b84d2d5a6d87e0db17c
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
   }
@@ -383,7 +340,6 @@ module.exports = {
     getMemoriaRamTotalTot5,
     atualizarTotem,
     deletarTotem,
-<<<<<<< HEAD
     listarTotem,
     getUsuario,
     getBotao,
@@ -391,7 +347,4 @@ module.exports = {
     removerMaquina,
     reiniciarMaquina,
     updateUsuario
-=======
-    listarTotem
->>>>>>> f07aa656446378e7f2f55b84d2d5a6d87e0db17c
 };
