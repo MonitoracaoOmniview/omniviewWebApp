@@ -13,7 +13,11 @@
     <script src="js/functionDataBase.js"></script>
 </head>
 
+<<<<<<< HEAD
 <body>
+=======
+<body onload="getMemoriaRamEmUso()">
+>>>>>>> f07aa656446378e7f2f55b84d2d5a6d87e0db17c
 
     <header id="header">
         <div class="container">
@@ -55,6 +59,7 @@
     <br><br><br><br><br><br><br>
     <div class="social">
         <div id="listarTotemId" class="cards">
+<<<<<<< HEAD
 
         </div>
 
@@ -78,6 +83,60 @@
                 <div class="alertasInstrucao" id="alertaLaranja">70-80</div>
                 <div class="alertasInstrucao" id="alertaVermelho">80-100</div>
             </div>
+=======
+            <!-- <div class="flip" >
+                <div class="face">
+                    <div class="alinhar_componentes">
+                        <h5>TOTEM 1</h5>
+                        <button onclick="reiniciarmaq()" class="button_reiniciar">Reiniciar aplicação</button>
+                        <div class="alerta" id="totem"><span id="numberr"></span></div>
+                    </div>
+                </div>
+            </div> -->
+            <!-- <div class="flip">
+                <div class="face">
+                    <div class="alinhar_componentes">
+                        <h5>TOTEM 2</h5>
+                        <button onclick="reiniciarmaq()" class="button_reiniciar">Reiniciar aplicação</button>
+                        <div class="alerta" id="totem2"><span id="numberr2">2</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="flip">
+                <div class="face">
+                    <div class="alinhar_componentes">
+                        <h5>TOTEM 3</h5>
+                        <button onclick="reiniciarmaq()" class="button_reiniciar">Reiniciar aplicação</button>
+                        <div class="alerta" id="totem3"><span id="numberr3">3</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="flip">
+                <div class="face">
+                    <div class="alinhar_componentes">
+                        <h5>TOTEM 4</h5>
+                        <button onclick="reiniciarmaq()" class="button_reiniciar">Reiniciar aplicação</button>
+                        <div class="alerta" id="totem4"><span id="numberr4"></span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="flip">
+                <div class="face">
+                    <div class="alinhar_componentes">
+                        <h5>TOTEM 5</h5>
+                        <button onclick="reiniciarmaq()" class="button_reiniciar">Reiniciar aplicação</button>
+                        <div class="alerta" id="totem5"><span id="numberr5"></span></div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+        <div class="social_dash">
+            <div class="div_dash">
+                <!-- <h2>Horário de funcionamento dos caixas</h2>
+                <canvas id="myChart" style="height: 90%;width: 100%;"></canvas>
+            </div>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+>>>>>>> f07aa656446378e7f2f55b84d2d5a6d87e0db17c
         </div>
     </div>
     <!-- Start of omniview2898 Zendesk Widget script -->
@@ -138,6 +197,7 @@
 
                 button_reiniciar.onclick = function reiniciarMaquina() {
 
+<<<<<<< HEAD
                     fetch("/usuarios/reiniciarMaquina", {
                         method: "POST",
                         headers: {
@@ -147,6 +207,12 @@
                             idMaquinaServer: usuarios[i].id,
                         }),
                     }).then((res) => console.log(res));
+=======
+    // console.log("AQUIII TOTEM 2:" + ramTotalTot2)
+    // console.log("AQUIII TOTEM 3:" + ramTotalTot3)
+    // console.log("AQUIII TOTEM 4:" + ramTotalTot4)
+    // console.log("AQUIII TOTEM 5:" + ramTotalTot5)
+>>>>>>> f07aa656446378e7f2f55b84d2d5a6d87e0db17c
 
                     document.location.reload(true);
                     window.alert("Alteração realizada com sucesso")
@@ -175,6 +241,7 @@
 
                     idTotemAlerta.innerHTML = idMaquina
 
+<<<<<<< HEAD
                     var ram = sessionStorage.RAMEMUSOTOT2
                     console.log(ram)
                 }
@@ -192,6 +259,129 @@ fetch("/usuarios/getMemoriaRamEmUsoTot2", {
     },
     body: JSON.stringify({
         idMaqServer: idMaquina
+=======
+         else if (calculoPorcentagem <= 80) {
+             totem.style.backgroundColor = 'yellow';
+
+        }
+
+        else if (calculoPorcentagem <= 90) {
+             totem.style.backgroundColor = 'orange';
+
+        }
+
+        else{
+             totem.style.backgroundColor = 'red';
+        }
+
+        // ===================== Muda a acor maquina 2 ============ 
+
+         if (calculoPorcentagem2 <= 70) {
+             totem2.style.backgroundColor = 'green';
+        }
+
+         else if (calculoPorcentagem2 <= 80) {
+             totem2.style.backgroundColor = 'yellow';
+
+        }
+
+        else if (calculoPorcentagem2 <= 90) {
+
+             totem2.style.backgroundColor = 'orange';
+        }
+
+        else{
+             totem2.style.backgroundColor = 'red';
+        }
+
+        // ======================= alete totem 3============= 
+
+         if (calculoPorcentagem3 <= 70) {
+             totem3.style.backgroundColor = 'green';
+        }
+
+         else if (calculoPorcentagem3 <= 80) {
+             totem3.style.backgroundColor = 'yellow';
+
+        }
+
+        else if (calculoPorcentagem3 <= 90) {
+
+             totem3.style.backgroundColor = 'orange';
+        }
+
+        else{
+             totem3.style.backgroundColor = 'red';
+        }
+        // ======================= alete totem 4============= 
+
+         if (calculoPorcentagem4 <= 70) {
+             totem4.style.backgroundColor = 'green';
+        }
+
+         else if (calculoPorcentagem4 <= 80) {
+             totem4.style.backgroundColor = 'yellow';
+
+        }
+
+        else if (calculoPorcentagem4 <= 90) {
+
+             totem4.style.backgroundColor = 'orange';
+        }
+
+        else{
+             totem4.style.backgroundColor = 'red';
+        }
+
+        // // ======================= alete totem 5============= 
+
+         if (calculoPorcentagem5 <= 70) {
+             totem5.style.backgroundColor = 'green';
+        }
+
+         else if (calculoPorcentagem5 <= 80) {
+             totem5.style.backgroundColor = 'yellow';
+
+        }
+
+        else if (calculoPorcentagem5 <= 90) {
+
+             totem5.style.backgroundColor = 'orange';
+        }
+
+        else{
+             totem5.style.backgroundColor = 'red';
+        }
+}
+
+
+
+    // var alerta;
+
+    // function chageTheAlertColor() {
+
+    //     var numero = sessionStorage.RAMTOTAL;
+    //     var valorCheio = Number(numero);
+    //     var valorUsado = Number(ramMaquina);
+    //     var calculo = Number((valorUsado * 100)/valorCheio);
+
+    //     console.log("RAM AQUIIII" + calculo);
+
+    //     if (sessionStorage.RAMEMUSO > 6) {
+    //         totem.style.backgroundColor = 'red';
+    //     }
+
+    // }
+
+//  setInterval(() =>{
+//      getram();
+//      chageTheAlertColor();
+//  }, 8000)
+
+
+</script>
+<script>
+>>>>>>> f07aa656446378e7f2f55b84d2d5a6d87e0db17c
 
     })
 }).then(function (resposta) {
@@ -200,9 +390,13 @@ fetch("/usuarios/getMemoriaRamEmUsoTot2", {
         resposta.json().then(function (resposta) {
             //console.log("Dados recebidos do usuario: ", JSON.stringify(resposta));
 
+<<<<<<< HEAD
             ramEmuso = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
             //console.log(ramEmuso.RamEmUsobd);
             sessionStorage.RAMEMUSOTOT2 = ramEmuso.RamEmUsobd;
+=======
+//   console.log("resposta: ", resposta);
+>>>>>>> f07aa656446378e7f2f55b84d2d5a6d87e0db17c
 
         });
     } else {
@@ -219,7 +413,15 @@ return false;
 //   console.log ("NAO NAO NAO" + usuarios.ram)
 // })
 
+<<<<<<< HEAD
 };
+=======
+  } else {
+    throw ("Houve um erro ao tentar realizar o cadastro!");
+  }
+}).catch(function (resposta) {
+//   console.log(`#ERRO: ${resposta}`);
+>>>>>>> f07aa656446378e7f2f55b84d2d5a6d87e0db17c
 
   function getram() {
 
@@ -243,6 +445,7 @@ else if (calculoPorcentagem <= 70) {
 
 }
 
+<<<<<<< HEAD
 else if (calculoPorcentagem <= 80) {
     divAlerta.style.backgroundColor = 'orange';
 
@@ -260,5 +463,61 @@ setInterval(() => {
   }, 1000)
   
     window.addEventListener("load", listarBotoes);
+=======
+// ===========================ADC TOTENS================================================
+
+function listarTotem() {
+  fetch("/usuarios/listarTotem", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then(async function (resposta) {
+    const containerTotem = document.querySelector(".cards");
+    const totens = await resposta.json();
+    for (let i = 0; i < totens.length; i++) {
+      console.log(totens[i]);
+
+      listarTotemId.innerHTML +=  `<div class="flip" >
+    <div class="face">
+        <div class="alinhar_componentes">
+            <h5>TOTEM ${totens[i].id}</h5>
+            <button onclick="reiniciarmaq()" class="button_reiniciar">Reiniciar aplicação</button>
+            <div class="alerta" id="totem"><span id="numberr"></span></div>
+        </div>
+    </div>
+</div>`
+     
+    //   let flip = document.createElement("div");
+    //   let face = document.createElement("div");
+    //   let alinhar_componentes= document.createElement("div");
+    //   let texto= document.createElement("span");
+    //   let botao= document.createElement("button");
+    //   let alerta= document.createElement("div");
+
+      
+      
+    //   flip.setAttribute("class", "flip");
+    //   face.setAttribute("class", "face");
+    //   alinhar_componentes.setAttribute("class", "alinhar_componentes");
+    //   botao.setAttribute("class", "button_reiniciar");
+    //   alerta.setAttribute("class", "alerta");
+      
+    //   texto.innerHTML = `<h5>TOTEM</h5> ${totens[i].idTotem}`;
+    //   botao.innerHTML = "Reiniciar aplicação";
+      
+    //   botao.onclick = reiniciarmaq();
+      
+      
+    //   flip.append(face, alinhar_componentes, texto, botao, alerta);
+            
+    //   containerTotem.appendChild(content);
+    }
+  });
+}
+
+window.addEventListener("load", listarTotem);
 
 </script>
+>>>>>>> f07aa656446378e7f2f55b84d2d5a6d87e0db17c
+

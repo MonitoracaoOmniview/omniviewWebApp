@@ -150,4 +150,28 @@ router.get("/listarTotem", function (req, res) {
 //     totemController.removerTotem(req, res);
 //   });
 
+router.post("/reiniciarmaq", function (req, res) {
+       usuarioController.reiniciarmaq(req, res);
+     });
+
+// ===========================ADC TOTENS================================================
+
+
+router.get("/listarTotem", function (req, res) {
+       usuarioController.listarTotem(req, res);
+   });
+
+// const totemController = require("../controllers/totemController");
+
+
+// router.put("/:idTotem", function (req, res) {
+//     console.log("CHEGOU leolindo");
+//     totemController.atualizarTotem(req, res);
+//   });
+
+//   router.delete("/:idTotem", function (req, res) {
+//     console.log("to AQ");
+//     totemController.removerTotem(req, res);
+//   });
+
 module.exports = router; 

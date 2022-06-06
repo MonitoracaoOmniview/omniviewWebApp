@@ -53,6 +53,7 @@ function entrar(req, res) {
                 function (erro) {
                     // console.log(erro);
                     // console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
+<<<<<<< HEAD
                     res.status(500).json(erro.sqlMessage);
                 }
             );
@@ -88,6 +89,8 @@ function entrarEmpresa(req, res) {
                 function (erro) {
                     // console.log(erro);
                     // console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
+=======
+>>>>>>> f07aa656446378e7f2f55b84d2d5a6d87e0db17c
                     res.status(500).json(erro.sqlMessage);
                 }
             );
@@ -479,6 +482,7 @@ function reiniciarmaq(req, res) {
     
   }
 
+<<<<<<< HEAD
   function listarUsuario(req, res) {
     usuarioModel
       .getUsuario()
@@ -548,6 +552,35 @@ function listarTotem(req, res) {
 //     var fabricante = req.body.fabricanteServer;
 //     var ipTotem = req.body.ipTotemServer;
   
+=======
+// ===========================ADC TOTENS================================================
+
+function listarTotem(req, res) {
+    usuarioModel.listarTotem()
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+//   var totemModel = require("../models/totemModel");
+
+// function atualizarTotem(req, res) {
+//     var id = req.params.idTotem;
+//     var sistema = req.body.sistemaServer;
+//     var fabricante = req.body.fabricanteServer;
+//     var ipTotem = req.body.ipTotemServer;
+  
+>>>>>>> f07aa656446378e7f2f55b84d2d5a6d87e0db17c
 //     console.log("CONTROLLER: ", id);
 //     console.log("CONTROLLER: ", sistema);
 //     console.log("CONTROLLER: ", fabricante);
@@ -566,6 +599,7 @@ function listarTotem(req, res) {
 //           res.status(500).json(erro.sqlMessage);
 //         });
 //     }
+<<<<<<< HEAD
 
 //     function removerTotem(req, res) {
 //       console.log(req.params);
@@ -664,6 +698,22 @@ function removerMaquina(req, res) {
             );
     }
   
+=======
+
+//     function removerTotem(req, res) {
+//       console.log(req.params);
+//       totemModel
+//         .deletarTotem(req.params.idTotem)
+//         .then(function (resultado) {
+//           res.json({ ok: true });
+//         })
+//         .catch(function (erro) {
+//           console.log(erro);
+//           console.log("\nHouve um erro ao pegar os usuarios", erro.sqlMessage);
+//           res.status(500).json(erro.sqlMessage);
+//         });
+//     }
+>>>>>>> f07aa656446378e7f2f55b84d2d5a6d87e0db17c
     
 module.exports = {
     entrar,
@@ -683,6 +733,7 @@ module.exports = {
     getCpu,
     listarUsuarioLogin,
     getMemoriaRamEmUsoTot2,
+<<<<<<< HEAD
     //getMemoriaRamEmUsoTot3,
     //getMemoriaRamEmUsoTot4,
     //getMemoriaRamEmUsoTot5,
@@ -696,6 +747,17 @@ module.exports = {
     atualizarUsuario,
     removerMaquina,
     reiniciarMaquina,
+=======
+    getMemoriaRamEmUsoTot3,
+    getMemoriaRamEmUsoTot4,
+    getMemoriaRamEmUsoTot5,
+    getMemoriaRamTotalTot2,
+    getMemoriaRamTotalTot3,
+    getMemoriaRamTotalTot4,
+    getMemoriaRamTotalTot5,
+    listarTotem,
+    
+>>>>>>> f07aa656446378e7f2f55b84d2d5a6d87e0db17c
     // atualizarTotem,
     // removerTotem
 }
