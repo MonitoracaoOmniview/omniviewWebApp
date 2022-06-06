@@ -3,7 +3,7 @@ var usuarioModel = require("../models/usuarioModel");
 var sessoes = [];
 
 function testar(req, res) {
-    console.log("ENTRAMOS NA usuarioController");
+    // console.log("ENTRAMOS NA usuarioController");
     res.json("ESTAMOS FUNCIONANDO!");
 }
 
@@ -17,8 +17,8 @@ function listar(req, res) {
             }
         }).catch(
             function (erro) {
-                console.log(erro);
-                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                // console.log(erro);
+                // console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
                 res.status(500).json(erro.sqlMessage);
             }
         );
@@ -37,11 +37,11 @@ function entrar(req, res) {
         usuarioModel.entrar(email, senha)
             .then(
                 function (resultado) {
-                    console.log(`\nResultados encontrados: ${resultado.length}`);
-                    console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
+                    // console.log(`\nResultados encontrados: ${resultado.length}`);
+                    // console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
 
                     if (resultado.length == 1) {
-                        console.log(resultado);
+                        // console.log(resultado);
                         res.json(resultado[0]);
                     } else if (resultado.length == 0) {
                         res.status(403).send("Email e/ou senha inválido(s)");
@@ -51,8 +51,43 @@ function entrar(req, res) {
                 }
             ).catch(
                 function (erro) {
-                    console.log(erro);
-                    console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
+                    // console.log(erro);
+                    // console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+
+}
+function entrarEmpresa(req, res) {
+    var nome = req.body.nomeServer;
+    var senha = req.body.senhaServer;
+
+    if (nome == undefined) {
+        res.status(400).send("Seu nome está undefined!");
+    } else if (senha == undefined) {
+        res.status(400).send("Sua senha está indefinida!");
+    } else {
+        
+        usuarioModel.entrarEmpresa(nome, senha)
+            .then(
+                function (resultado) {
+                    // console.log(`\nResultados encontrados: ${resultado.length}`);
+                    // console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
+
+                    if (resultado.length == 1) {
+                        // console.log(resultado);
+                        res.json(resultado[0]);
+                    } else if (resultado.length == 0) {
+                        res.status(403).send("Nome e/ou senha inválido(s)");
+                    } else {
+                        res.status(403).send("Mais de um usuário com o mesmo login e senha!");
+                    }
+                }
+            ).catch(
+                function (erro) {
+                    // console.log(erro);
+                    // console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
                     res.status(500).json(erro.sqlMessage);
                 }
             );
@@ -66,7 +101,6 @@ function cadastrar(req, res) {
     var senha = req.body.cpfServer;
     var cpf = req.body.senhaServer;
     var cargo = req.body.cargoServer;
-    var estabelecimento = req.body.estabelecimentoServer;
 
     if (nome == undefined) {
         res.status(400).send("Seu nome está undefined!");
@@ -76,10 +110,43 @@ function cadastrar(req, res) {
         res.status(400).send("Sua senha está undefined!");
     } else {
         
-        usuarioModel.cadastrar(nome, email, senha, cpf, cargo,estabelecimento)
+        usuarioModel.cadastrar(nome, email, senha, cpf, cargo)
             .then(
                 function (resultado) {
                     res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    // console.log(erro);
+                    // console.log(
+                        // "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        // erro.sqlMessage
+                    // );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
+function cadastrarEmpresa(req, res) { 
+    var nome = req.body.nomeServer;
+    var email = req.body.emailServer;
+    var senha = req.body.senhaServer;
+    var endereco = req.body.enderecoServer;
+    var cnpj = req.body.cnpjServer;
+
+    if (nome == undefined) {
+        res.status(400).send("Seu nome está undefined!");
+    } else if (email == undefined) {
+        res.status(400).send("Seu email está undefined!");
+    } else if (senha == undefined) {
+        res.status(400).send("Sua senha está undefined!");
+    } else {
+        
+        usuarioModel.cadastrarEmpresa(nome, email, senha,endereco, cnpj)
+            .then(
+                function (resultado) {
+                    res.status(200).json(resultado);
                 }
             ).catch(
                 function (erro) {
@@ -195,26 +262,15 @@ function getMemoriaRamTotalTot5(req, res) {
 // ====================================================================================================
 
 // ---------- Memoria Ram em uso ---------------
-function getMemoriaRamEmUso(req, res) {
-    usuarioModel.getMemoriaRamEmUso()
-        .then(function (resultado) {
-            if (resultado.length > 0) {
-                res.status(200).json(resultado);
-            } else {
-                res.status(204).send("Nenhum resultado encontrado!")
-            }
-        }).catch(
-            function (erro) {
-                console.log(erro);
-                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
-                res.status(500).json(erro.sqlMessage);
-            }
-        );
-}
+
 //------------------------------------------ RAM USO TOTEM 2 ----------------------------------------
 
 function getMemoriaRamEmUsoTot2(req, res) {
-    usuarioModel.getMemoriaRamEmUsoTot2()
+    var id = req.body.idMaqServer;
+
+    console.log("TOMEEEEEEEEEE"+ id)
+
+    usuarioModel.getMemoriaRamEmUsoTot2(id)
         .then(function (resultado) {
             if (resultado.length > 0) {
                 res.status(200).json(resultado);
@@ -309,7 +365,10 @@ function getMemoriaTotal(req, res) {
 
 // Memoria Total em uso
 function getMemoriaEmUso(req, res) {
-    usuarioModel.getMemoriaEmUso()
+
+    id = req.body.idMaqServer
+
+    usuarioModel.getMemoriaEmUso(id)
         .then(function (resultado) {
             if (resultado.length > 0) {
                 res.status(200).json(resultado);
@@ -318,8 +377,8 @@ function getMemoriaEmUso(req, res) {
             }
         }).catch(
             function (erro) {
-                console.log(erro);
-                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                //console.log(erro);
+               // console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
                 res.status(500).json(erro.sqlMessage);
             }
         );
@@ -380,7 +439,10 @@ function getArquitetura(req, res) {
 }
 // cpu
 function getCpu(req, res) {
-    usuarioModel.getCpu()
+
+    id = req.body.idMaqServer
+
+    usuarioModel.getCpu(id)
         .then(function (resultado) {
             if (resultado.length > 0) {
                 res.status(200).json(resultado);
@@ -397,11 +459,12 @@ function getCpu(req, res) {
 }
 
 function reiniciarmaq(req, res) {
+    var id = req.params.idMaqServer;
     var reiniciarMaq = req.body.reiniciarMaqServer;
-  
+    
   
       usuarioModel
-        .reiniciarmaq(reiniciarMaq)
+        .reiniciarmaq(reiniciarMaq, id)
         .then(function (resultado) {
           res.json(resultado);
         })
@@ -415,29 +478,224 @@ function reiniciarmaq(req, res) {
         });
     
   }
+
+  function listarUsuario(req, res) {
+    usuarioModel
+      .getUsuario()
+      .then(function (resultado) {
+        res.json(resultado);
+      })
+      .catch(function (erro) {
+        console.log(erro);
+        console.log("\nHouve um erro ao pegar os usuarios", erro.sqlMessage);
+        res.status(10).json(erro.sqlMessage);
   
+      });
+  }
+
+  function listarUsuarioLogin(req, res) {
+    usuarioModel
+      .listarUsuario()
+      .then(function (resultado) {
+        res.json(resultado);
+      })
+      .catch(function (erro) {
+        console.log(erro);
+        console.log("\nHouve um erro ao pegar os usuarios", erro.sqlMessage);
+        res.status(10).json(erro.sqlMessage);
+  
+      });
+  }
+
+  function listarBotoes(req, res) {
+    usuarioModel
+      .getBotao()
+      .then(function (resultado) {
+        res.json(resultado);
+      })
+      .catch(function (erro) {
+        console.log(erro);
+        console.log("\nHouve um erro ao pegar os usuarios", erro.sqlMessage);
+        res.status(10).json(erro.sqlMessage);
+  
+      });
+  }
+
+// ===========================ADC TOTENS================================================
+
+function listarTotem(req, res) {
+    usuarioModel.listarTotem()
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+//   var totemModel = require("../models/totemModel");
+
+// function atualizarTotem(req, res) {
+//     var id = req.params.idTotem;
+//     var sistema = req.body.sistemaServer;
+//     var fabricante = req.body.fabricanteServer;
+//     var ipTotem = req.body.ipTotemServer;
+  
+//     console.log("CONTROLLER: ", id);
+//     console.log("CONTROLLER: ", sistema);
+//     console.log("CONTROLLER: ", fabricante);
+//     console.log("CONTROLLER: ", ipTotem);
+//       totemModel
+//         .atualizarTotem(id, sistema, fabricante, ipTotem)
+//         .then(function (resultado) {
+//           res.json(resultado);
+//         })
+//         .catch(function (erro) {
+//           console.log(erro);
+//           console.log(
+//             "\nHouve um erro ao atualizar usuario! Erro: ",
+//             erro.sqlMessage
+//           );
+//           res.status(500).json(erro.sqlMessage);
+//         });
+//     }
+
+//     function removerTotem(req, res) {
+//       console.log(req.params);
+//       totemModel
+//         .deletarTotem(req.params.idTotem)
+//         .then(function (resultado) {
+//           res.json({ ok: true });
+//         })
+//         .catch(function (erro) {
+//           console.log(erro);
+//           console.log("\nHouve um erro ao pegar os usuarios", erro.sqlMessage);
+//           res.status(500).json(erro.sqlMessage);
+//         });
+//     }
 
 
+function atualizarUsuario(req, res) {
+    var id = req.params.idUsuario;
+    var statusUser = req.body.statusUserServer;
+
+    console.log("CONTROLLER: ", id);
+    console.log("CONTROLLER: ", statusUser);
+
+      usuarioModel
+        .updateUsuario(id, statusUser)
+        .then(function (resultado) {
+          res.json(resultado);
+        })
+        .catch(function (erro) {
+          console.log(erro);
+          console.log(
+            "\nHouve um erro ao atualizar usuario! Erro: ",
+            erro.sqlMessage
+          );
+          res.status(10).json(erro.sqlMessage);
+        });
+    }
+
+function reiniciarMaquina(req, res) {
+    var id = req.body.idMaquinaServer;
+
+    console.log("CONTROLLER: ", id);
+    
+      usuarioModel
+        .reiniciarMaquina(id)
+        .then(function (resultado) {
+          res.json(resultado);
+        })
+        .catch(function (erro) {
+          console.log(erro);
+          console.log(
+            "\nHouve um erro ao atualizar usuario! Erro: ",
+            erro.sqlMessage
+          );
+          res.status(10).json(erro.sqlMessage);
+        });
+    }
+
+function removerMaquina(req, res) {
+    var id = req.body.idMaquinaServer;
+
+    console.log("CONTROLLER: ", id);
+    
+      usuarioModel
+        .removerMaquina(id)
+        .then(function (resultado) {
+          res.json(resultado);
+        })
+        .catch(function (erro) {
+          console.log(erro);
+          console.log(
+            "\nHouve um erro ao atualizar usuario! Erro: ",
+            erro.sqlMessage
+          );
+          res.status(10).json(erro.sqlMessage);
+        });
+    }
+
+    function getMemoriaRamEmUso(req, res) {
+
+        var id = req.body.idMaquinaServer;
+
+        usuarioModel.getMemoriaRamEmUso(id)
+            .then(function (resultado) {
+                if (resultado.length > 0) {
+                    res.status(200).json(resultado);
+                } else {
+                    res.status(204).send("Nenhum resultado encontrado!")
+                }
+            }).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+  
+    
 module.exports = {
     entrar,
+    entrarEmpresa,
     cadastrar,
     listar,
+    cadastrarEmpresa,
     testar,
     reiniciarmaq,
-    getMemoriaRamTotal,
-    getMemoriaRamEmUso,
+    //getMemoriaRamTotal,
+    //getMemoriaRamEmUso,
     getMemoriaEmUso,
     getMemoriaTotal,
     getSistemaOp,
     getProcessador,
     getArquitetura,
     getCpu,
+    listarUsuarioLogin,
     getMemoriaRamEmUsoTot2,
-    getMemoriaRamEmUsoTot3,
-    getMemoriaRamEmUsoTot4,
-    getMemoriaRamEmUsoTot5,
-    getMemoriaRamTotalTot2,
-    getMemoriaRamTotalTot3,
-    getMemoriaRamTotalTot4,
-    getMemoriaRamTotalTot5,
+    //getMemoriaRamEmUsoTot3,
+    //getMemoriaRamEmUsoTot4,
+    //getMemoriaRamEmUsoTot5,
+    //getMemoriaRamTotalTot2,
+    //getMemoriaRamTotalTot3,
+    //getMemoriaRamTotalTot4,
+    //getMemoriaRamTotalTot5,
+    listarTotem,
+    listarUsuario,
+    listarBotoes,
+    atualizarUsuario,
+    removerMaquina,
+    reiniciarMaquina,
+    // atualizarTotem,
+    // removerTotem
 }

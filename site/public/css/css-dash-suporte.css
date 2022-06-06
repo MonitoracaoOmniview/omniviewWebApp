@@ -412,11 +412,26 @@ a{
     background-color: #cfd6e4;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-start;
+    overflow-y: scroll;
     align-items: center;
     background-color: 	#cfd6e4;
     border-right: white 1px solid;
 }
+
+.botoes::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  .botoes::-webkit-scrollbar-track {
+    background-color: #ffffff;
+  }
+  
+  .botoes::-webkit-scrollbar-thumb {
+    background-color: var(--color-primary);
+    border-radius: 20px;
+    border: 3px solid #ffffff;
+  }
 
 .botoes button{
     width: 70%;
@@ -430,6 +445,7 @@ a{
     color: white;
     cursor: pointer;
     font-weight: bolder;
+    margin-top: 1rem;
 
 }
 
